@@ -1,0 +1,141 @@
+body {
+ font-family: 'Poppins';
+}
+
+.cabecalho{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center; /* centralizar os elementos */
+ padding: 30px; /* espacamento entre conteudo e as bordas */
+ max-width: 1440px; /* largura maxima */
+ margin: 0 auto; /* centralizar */
+}
+
+.cabecalho .logo{
+ width: 65px;
+}
+
+.cabecalho .menu{
+    display: flex; /* alinhar os elementos */
+    height: 100%;
+}
+
+.cabecalho nav li a {
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 50px; /* deixar as bordas arredondadas */
+    transition: 0.2s; /* tempo da animação ao passar o mouse em cima */
+}
+
+.cabecalho nav li a:hover { /* modo seleção */
+   background-color: #d5011d;
+}
+
+/*  */
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 132px); /* calculo para desconsiderar o tamanho do cabecalho */
+    padding: 0 30px 30px;
+}
+
+.container .imagem-titulo {
+max-width: 500px;
+
+}
+
+.container .descricao {
+    color: #a8adb7;
+    width: 85%;
+    font-size: 18px;
+    margin: 30px 0;
+} 
+ .container .botao-trailer {
+    background-color: #ff0021;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer; /* mudar o cursor para maozinha que aponta */
+    border: none; /* sem borda */
+    text-transform: uppercase; /* letra maiuscula */
+    transition: 0.5s all ease-in-out; /* animação ao passar o mouse*/
+ }
+
+ .container .botao-trailer:hover { /* vai realizar a animação */
+    transform: scale(1.1);
+ }
+
+ .fundo-video {
+    position: absolute; /* coloca o elemento separado dos outros "aparece sob os outros" */
+    z-index: -1; /* coloca o elemento atras */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;/* esconder o transbordar "tirar o scrow" */
+    display: flex;
+    justify-content: center;
+ }
+
+ .fundo-video .video{
+    height: 119vh;
+ }
+
+ .fundo-video::after{ /* criando um elemento html pelo css */
+    content: "";
+    background-color: #d5011d;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: radial-gradient(circle, rgba(36,36,36,0.7455357142857143) 0%, rgba(0,0,0,0.87718837535014) 47%, rgba(0,0,0,1) 95%);
+
+ }
+
+ .modal{
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   background-color: rgba(52, 52, 50, 0.749);
+   opacity: 0; /* deixar o video invisivel */
+   visibility: hidden; /* esconder o video para deixar possivel interagir com os elementos de tras */
+ }
+
+ .conteudo-modal{
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   border-radius: 5px;
+   gap: 15px; /* dar espaço entre os elementos*/
+ }
+
+ .fechar-modal{
+   background-color: white;
+   color: #ff0021;
+   font-size: 20px;
+   width: 40px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 10px;
+ }
+
+ .modal iframe{
+   border-width: 0; /*tirar borda do video*/
+   width: 640px;
+   height: 360px;
+ }
+
+.modal.aberto{
+   opacity: 1;
+   visibility: visible;
+}
